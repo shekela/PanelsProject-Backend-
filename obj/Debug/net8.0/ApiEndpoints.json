@@ -1,0 +1,96 @@
+[
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "AddProduct",
+    "RelativePath": "api/MainProductsSection/add-product",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "PanelsProject_Backend.Entities.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "GetCombinedData",
+    "RelativePath": "api/MainProductsSection/Combined",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "CreateMainProductSection",
+    "RelativePath": "api/MainProductsSection/createMainProductSectionText",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mainProductSectionDto",
+        "Type": "PanelsProject_Backend.Controllers.MainProductSectionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MarektingBannerController",
+    "Method": "CreateMainProductSection",
+    "RelativePath": "api/MarektingBanner/CreateMarketingBanner",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "marketingBanner",
+        "Type": "PanelsProject_Backend.DTO_s.MarketingBannerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MarektingBannerController",
+    "Method": "GetProducts",
+    "RelativePath": "api/MarektingBanner/get-marketingBanner",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VideoCatalogController",
+    "Method": "CreateMainProductSection",
+    "RelativePath": "api/VideoCatalog/CreateVideoCatalog",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "videoCatalog",
+        "Type": "PanelsProject_Backend.DTO_s.VideoCatalogDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VideoCatalogController",
+    "Method": "GetProducts",
+    "RelativePath": "api/VideoCatalog/get-videoCatalog",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
