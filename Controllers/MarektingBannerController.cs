@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
 using PanelsProject_Backend.DTO_s;
 using PanelsProject_Backend.Entities;
+using PanelsProject_Backend.Interfaces;
 
 namespace PanelsProject_Backend.Controllers
 {
@@ -12,16 +13,29 @@ namespace PanelsProject_Backend.Controllers
     public class MarektingBannerController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly IFileService _fileService;
 
-        public MarektingBannerController(DataContext context)
+
+        public MarektingBannerController(DataContext context, IFileService fileService)
         {
             _context = context;
+            _fileService = fileService;
         }
 
-        [HttpPost("CreateMarketingBanner")]
-        public async Task<IActionResult> CreateMainProductSection([FromBody] MarketingBannerDto marketingBanner)
+        [HttpGet("get-marketingBanner")]
+        public async Task<IActionResult> GetProducts()
         {
-            // Validate input
+            var products = await _context.MarketingBanners.ToListAsync();
+            return Ok(products);
+        }
+
+
+        [HttpPost("CreateMarketingBanner")]
+        public async Task<IActionResult> CreateMarketingBanner(
+         [FromForm] MarketingBannerDto marketingBanner,
+         IFormFile imageFile)  // No need for [FromForm] here
+        {
+            // Validate the input
             if (marketingBanner == null)
             {
                 return BadRequest("MarketingBanner cannot be null.");
@@ -29,28 +43,45 @@ namespace PanelsProject_Backend.Controllers
 
             try
             {
+                string imagePath = null;
+
+                // Handle file upload if there is an image file
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    // Use the IFileService to save the file
+                    imagePath = await _fileService.SaveFileAsync(imageFile);
+                }
+
+                // Check if a MarketingBanner exists in the database
                 var existingMarketingBanner = await _context.MarketingBanners.FirstOrDefaultAsync();
 
-                // If an existing row is found, update it
                 if (existingMarketingBanner != null)
                 {
-                    existingMarketingBanner.TitleEn = marketingBanner.TitleEn ?? marketingBanner.TitleEn;
-                    existingMarketingBanner.DescriptionEn = marketingBanner.DescriptionEn ?? marketingBanner.DescriptionEn;
-                    existingMarketingBanner.AimEn = marketingBanner.AimEn ?? marketingBanner.AimEn;
-                    existingMarketingBanner.TitleKa = marketingBanner.TitleKa ?? marketingBanner.TitleKa;
-                    existingMarketingBanner.DescriptionKa = marketingBanner.DescriptionKa ?? marketingBanner.DescriptionKa;
-                    existingMarketingBanner.AimKa = marketingBanner.AimKa ?? marketingBanner.AimKa;
-                    existingMarketingBanner.TitleRu = marketingBanner.TitleRu ?? marketingBanner.TitleRu;
-                    existingMarketingBanner.DescriptionRu = marketingBanner.DescriptionRu ?? marketingBanner.DescriptionRu;
-                    existingMarketingBanner.AimRu = marketingBanner.AimRu ?? marketingBanner.AimRu;
-                    existingMarketingBanner.ImgUrl = marketingBanner.ImgUrl ?? marketingBanner.ImgUrl;
+                    // Update the existing MarketingBanner
+                    existingMarketingBanner.TitleEn = marketingBanner.TitleEn ?? existingMarketingBanner.TitleEn;
+                    existingMarketingBanner.DescriptionEn = marketingBanner.DescriptionEn ?? existingMarketingBanner.DescriptionEn;
+                    existingMarketingBanner.AimEn = marketingBanner.AimEn ?? existingMarketingBanner.AimEn;
+
+                    existingMarketingBanner.TitleKa = marketingBanner.TitleKa ?? existingMarketingBanner.TitleKa;
+                    existingMarketingBanner.DescriptionKa = marketingBanner.DescriptionKa ?? existingMarketingBanner.DescriptionKa;
+                    existingMarketingBanner.AimKa = marketingBanner.AimKa ?? existingMarketingBanner.AimKa;
+
+                    existingMarketingBanner.TitleRu = marketingBanner.TitleRu ?? existingMarketingBanner.TitleRu;
+                    existingMarketingBanner.DescriptionRu = marketingBanner.DescriptionRu ?? existingMarketingBanner.DescriptionRu;
+                    existingMarketingBanner.AimRu = marketingBanner.AimRu ?? existingMarketingBanner.AimRu;
+
+                    // If an image was uploaded, update the image URL
+                    if (!string.IsNullOrEmpty(imagePath))
+                    {
+                        existingMarketingBanner.ImgUrl = imagePath;
+                    }
 
                     await _context.SaveChangesAsync();
-                    return Ok(existingMarketingBanner); 
+                    return Ok(existingMarketingBanner);
                 }
                 else
                 {
-                    Console.WriteLine("No existing section, creating new...");
+                    // If no existing MarketingBanner is found, create a new one
                     var newMarketingBanner = new MarketingBanner
                     {
                         TitleEn = marketingBanner.TitleEn,
@@ -62,31 +93,19 @@ namespace PanelsProject_Backend.Controllers
                         TitleRu = marketingBanner.TitleRu,
                         DescriptionRu = marketingBanner.DescriptionRu,
                         AimRu = marketingBanner.AimRu,
-                        ImgUrl = marketingBanner.ImgUrl,
+                        ImgUrl = imagePath // Include image URL if an image was uploaded
                     };
 
                     _context.MarketingBanners.Add(newMarketingBanner);
-
                     await _context.SaveChangesAsync();
                     return Ok(newMarketingBanner);
                 }
             }
             catch (Exception ex)
-            {  
+            {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-
         }
-
-
-        [HttpGet("get-marketingBanner")]
-        public async Task<IActionResult> GetProducts()
-        {
-            var products = await _context.MarketingBanners.ToListAsync();
-            return Ok(products);
-        }
-
-
-
     }
 }
+

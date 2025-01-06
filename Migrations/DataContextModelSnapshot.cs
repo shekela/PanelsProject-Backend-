@@ -21,6 +21,145 @@ namespace PanelsProject_Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("PanelsProject_Backend.Entities.ColorAndCovers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BackgroundUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ColorAndCovers");
+                });
+
+            modelBuilder.Entity("PanelsProject_Backend.Entities.GalleryPictures", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("MediaType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GalleryPictures");
+                });
+
+            modelBuilder.Entity("PanelsProject_Backend.Entities.GallerySectionTexts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleTextEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleTextKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleTextRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GallerySectionTexts");
+                });
+
+            modelBuilder.Entity("PanelsProject_Backend.Entities.InformationBanner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BackgroundUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTextRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InformationBanners");
+                });
+
             modelBuilder.Entity("PanelsProject_Backend.Entities.MainProductSection", b =>
                 {
                     b.Property<int>("Id")
@@ -74,13 +213,16 @@ namespace PanelsProject_Backend.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DescriptionEn")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("DescriptionKa")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("DescriptionRu")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
@@ -146,6 +288,65 @@ namespace PanelsProject_Backend.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("PanelsProject_Backend.Entities.ProductsSliderCatalog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BackgroundUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductsSliderCatalog");
+                });
+
+            modelBuilder.Entity("PanelsProject_Backend.Entities.SaleItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DescriptionEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleKa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SaleItems");
+                });
+
             modelBuilder.Entity("PanelsProject_Backend.Entities.VideoCatalog", b =>
                 {
                     b.Property<int>("Id")
@@ -191,6 +392,25 @@ namespace PanelsProject_Backend.Migrations
                         .HasFilter("[TitleEn] IS NOT NULL AND [DescriptionEn] IS NOT NULL AND [ButtonTextEn] IS NOT NULL AND [TitleKa] IS NOT NULL AND [DescriptionKa] IS NOT NULL AND [ButtonTextKa] IS NOT NULL AND [TitleRu] IS NOT NULL AND [DescriptionRu] IS NOT NULL AND [ButtonTextRu] IS NOT NULL");
 
                     b.ToTable("VideoCatalog");
+                });
+
+            modelBuilder.Entity("PanelsProject_Backend.Entities.VoiceComperator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("VoiceAcupanel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VoiceWOAcupanel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VoiceComperator");
                 });
 #pragma warning restore 612, 618
         }

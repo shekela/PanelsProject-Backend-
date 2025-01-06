@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
 using PanelsProject_Backend.Entities;
+using PanelsProject_Backend.Interfaces;
 
 
 namespace PanelsProject_Backend.Controllers
@@ -12,10 +13,12 @@ namespace PanelsProject_Backend.Controllers
     public class MainProductsSectionController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly IFileService _fileService;
 
-        public MainProductsSectionController(DataContext context)
+        public MainProductsSectionController(DataContext context, IFileService fileService)
         {
             _context = context;
+            _fileService = fileService;
         }
 
         [HttpPost("createMainProductSectionText")]
@@ -25,6 +28,10 @@ namespace PanelsProject_Backend.Controllers
             if (mainProductSectionDto == null)
             {
                 return BadRequest("MainProductSectionDto cannot be null.");
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Return validation errors in the response
             }
 
             try
@@ -76,14 +83,16 @@ namespace PanelsProject_Backend.Controllers
             }
             catch (Exception ex)
             {
-                // Handle unexpected errors
+                // Log the full exception to get more detailed information
+                Console.WriteLine(ex.InnerException?.Message);
+                Console.WriteLine(ex.StackTrace);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
 
         }
 
         [HttpPost("add-product")]
-        public async Task<IActionResult> AddProduct([FromBody] Product product)
+        public async Task<IActionResult> AddProduct([FromForm] Product product, IFormFile imageFile)
         {
             if (product == null)
             {
@@ -97,13 +106,79 @@ namespace PanelsProject_Backend.Controllers
                 return BadRequest("Cannot add more than 4 products.");
             }
 
+            // Handle the file upload
+            if (imageFile != null)
+            {
+                var imageUrl = await _fileService.SaveFileAsync(imageFile); // Save the file and get its URL
+                product.BackgroundUrl = imageUrl;
+            }
+
             // Add the product to the database
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "Product added successfully." });
+            return Ok(new { message = "Product added successfully.", id = product.Id });
         }
 
+
+
+        [HttpPut("update-product/{id}")]
+        public async Task<IActionResult> UpdateProduct(int id, [FromForm] Product updatedProduct, IFormFile imageFile)
+        {
+            if (updatedProduct == null)
+            {
+                return BadRequest("Updated product data is required.");
+            }
+
+            // Find the product by ID
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct == null)
+            {
+                return NotFound(new { message = "Product not found." });
+            }
+
+            // Update the product properties
+            existingProduct.TitleEn = updatedProduct.TitleEn;
+            existingProduct.DescriptionEn = updatedProduct.DescriptionEn;
+            existingProduct.ButtonTextEn = updatedProduct.ButtonTextEn;
+            existingProduct.TitleKa = updatedProduct.TitleKa;
+            existingProduct.DescriptionKa = updatedProduct.DescriptionKa;
+            existingProduct.ButtonTextKa = updatedProduct.ButtonTextKa;
+            existingProduct.TitleRu = updatedProduct.TitleRu;
+            existingProduct.DescriptionRu = updatedProduct.DescriptionRu;
+            existingProduct.ButtonTextRu = updatedProduct.ButtonTextRu;
+
+            // Handle the file upload
+            if (imageFile != null)
+            {
+                var imageUrl = await _fileService.SaveFileAsync(imageFile); // Save the file and get its URL
+                existingProduct.BackgroundUrl = imageUrl;
+            }
+
+            // Save changes to the database
+            _context.Products.Update(existingProduct);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Product updated successfully." });
+        }
+
+
+        [HttpDelete("delete-product/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            // Find the product by ID
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (existingProduct == null)
+            {
+                return NotFound(new { message = "Product not found." });
+            }
+
+            // Remove the product from the database
+            _context.Products.Remove(existingProduct);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Product deleted successfully." });
+        }
 
         [HttpGet("Combined")]
         public async Task<IActionResult> GetCombinedData()
@@ -118,6 +193,13 @@ namespace PanelsProject_Backend.Controllers
             };
 
             return Ok(result);
+        }
+
+        [HttpGet("get-Products")]
+        public async Task<IActionResult> GeProductsData()
+        {  
+            var products = await _context.Products.ToListAsync();
+            return Ok(products);
         }
 
 

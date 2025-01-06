@@ -1,5 +1,329 @@
 [
   {
+    "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
+    "Method": "AddProduct",
+    "RelativePath": "api/ColorAndCovers/add-product",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "backgroundImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
+    "Method": "DeleteColorAndCovers",
+    "RelativePath": "api/ColorAndCovers/delete-color-and-covers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
+    "Method": "GetData",
+    "RelativePath": "api/ColorAndCovers/get-ColorAndCovers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
+    "Method": "UpdateProduct",
+    "RelativePath": "api/ColorAndCovers/update-product/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "backgroundImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.GalleryController",
+    "Method": "AddProduct",
+    "RelativePath": "api/Gallery/add-picture",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "MediaType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Picture",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Url",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "backgroundImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.GalleryController",
+    "Method": "CreateGalleryTexts",
+    "RelativePath": "api/Gallery/createGalleryTexts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "galleryTextsDto",
+        "Type": "PanelsProject_Backend.Entities.GallerySectionTexts",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.GalleryController",
+    "Method": "DeletePicture",
+    "RelativePath": "api/Gallery/delete-picture/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.GalleryController",
+    "Method": "GetPictures",
+    "RelativePath": "api/Gallery/get-gallery",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.GalleryController",
+    "Method": "GetGalleryTexts",
+    "RelativePath": "api/Gallery/get-galleryTexts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.InformationBannersController",
+    "Method": "AddBanner",
+    "RelativePath": "api/InformationBanners/add-banner",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "banner",
+        "Type": "PanelsProject_Backend.Entities.InformationBanner",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.InformationBannersController",
+    "Method": "DeleteBanner",
+    "RelativePath": "api/InformationBanners/delete-banner/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.InformationBannersController",
+    "Method": "GetBanners",
+    "RelativePath": "api/InformationBanners/get-banners",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.InformationBannersController",
+    "Method": "UpdateBanner",
+    "RelativePath": "api/InformationBanners/update-banner/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedBanner",
+        "Type": "PanelsProject_Backend.Entities.InformationBanner",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
     "Method": "AddProduct",
     "RelativePath": "api/MainProductsSection/add-product",
@@ -8,9 +332,64 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "product",
-        "Type": "PanelsProject_Backend.Entities.Product",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -42,17 +421,169 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "DeleteProduct",
+    "RelativePath": "api/MainProductsSection/delete-product/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "GeProductsData",
+    "RelativePath": "api/MainProductsSection/get-Products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.MainProductsSectionController",
+    "Method": "UpdateProduct",
+    "RelativePath": "api/MainProductsSection/update-product/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PanelsProject_Backend.Controllers.MarektingBannerController",
-    "Method": "CreateMainProductSection",
+    "Method": "CreateMarketingBanner",
     "RelativePath": "api/MarektingBanner/CreateMarketingBanner",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "marketingBanner",
-        "Type": "PanelsProject_Backend.DTO_s.MarketingBannerDto",
-        "IsRequired": true
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AimEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AimRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AimKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImgUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -68,17 +599,236 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PanelsProject_Backend.Controllers.ProductsSliderCatalogController",
+    "Method": "AddProduct",
+    "RelativePath": "api/ProductsSliderCatalog/add-product",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.ProductsSliderCatalogController",
+    "Method": "DeleteProduct",
+    "RelativePath": "api/ProductsSliderCatalog/delete-product/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.ProductsSliderCatalogController",
+    "Method": "GetProducts",
+    "RelativePath": "api/ProductsSliderCatalog/get-ProductsCatalogSlider",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.SaleItemsController",
+    "Method": "AddSaleItem",
+    "RelativePath": "api/SaleItems/add-saleitem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Picture",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "picture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PanelsProject_Backend.Entities.SaleItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.SaleItemsController",
+    "Method": "DeleteSaleItem",
+    "RelativePath": "api/SaleItems/delete-item/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.SaleItemsController",
+    "Method": "GetSaleItems",
+    "RelativePath": "api/SaleItems/get-saleitems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PanelsProject_Backend.Entities.SaleItem, PanelsProject_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PanelsProject_Backend.Controllers.VideoCatalogController",
-    "Method": "CreateMainProductSection",
+    "Method": "CreateVideoCatalog",
     "RelativePath": "api/VideoCatalog/CreateVideoCatalog",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "videoCatalog",
-        "Type": "PanelsProject_Backend.DTO_s.VideoCatalogDto",
-        "IsRequired": true
+        "Name": "TitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ButtonTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "backgroundFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -91,6 +841,79 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VoiceComperatorController",
+    "Method": "AddVoices",
+    "RelativePath": "api/VoiceComperator/AddVoices",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "voiceAcupanelFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "voiceWOAcupanelFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VoiceComperatorController",
+    "Method": "DeleteVoice",
+    "RelativePath": "api/VoiceComperator/delete-voice/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VoiceComperatorController",
+    "Method": "GetVoices",
+    "RelativePath": "api/VoiceComperator/get-VoiceExamples",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.VoiceComperatorController",
+    "Method": "UpdateVoice",
+    "RelativePath": "api/VoiceComperator/update-voice/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "voiceAcupanelFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "voiceWOAcupanelFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   }
 ]

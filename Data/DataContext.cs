@@ -9,6 +9,14 @@ namespace PanelsProject_Backend.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<MainProductSection> MainProductSections { get; set; }
         public DbSet<VideoCatalog> VideoCatalog { get; set; }
+        public DbSet<ProductsSliderCatalog> ProductsSliderCatalog { get; set; }
+        public DbSet<VoiceComperator> VoiceComperator { get; set; }
+        public DbSet<ColorAndCovers> ColorAndCovers { get; set; }
+        public DbSet<GalleryPictures> GalleryPictures { get; set; }
+        public DbSet<InformationBanner> InformationBanners { get; set; }
+        public DbSet<GallerySectionTexts> GallerySectionTexts { get; set; }
+        public DbSet<SaleItem> SaleItems { get; set; }
+
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
