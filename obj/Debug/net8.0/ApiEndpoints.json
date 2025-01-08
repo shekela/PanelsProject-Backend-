@@ -1,5 +1,111 @@
 [
   {
+    "ContainingType": "PanelsProject_Backend.Controllers.AboutUsController",
+    "Method": "CreateMainProductSection",
+    "RelativePath": "api/AboutUs/create-greeting",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GreetingTextEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneTitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneDescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoTitleEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoDescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GreetingTextRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneTitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneDescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoTitleRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoDescriptionRu",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GreetingTextKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneTitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxOneDescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoTitleKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TextBoxTwoDescriptionKa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BackgroundImage",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "backgroundImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PanelsProject_Backend.Controllers.AboutUsController",
+    "Method": "GeProductsData",
+    "RelativePath": "api/AboutUs/get-aboutUsPage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
     "Method": "AddProduct",
     "RelativePath": "api/ColorAndCovers/add-product",

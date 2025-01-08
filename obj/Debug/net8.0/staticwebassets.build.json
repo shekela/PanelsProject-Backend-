@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yUbYzd7EEHLDm4UV6jI0zL6dTmLE0aoOsZdq//kGnOQ=",
+  "Hash": "4kPf2vVyzM1dDOfDkwsG9LarTlvwkAaDMLXSnO0FVtg=",
   "Source": "PanelsProject_Backend",
   "BasePath": "_content/PanelsProject_Backend",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\001f9485-8808-4818-9bda-6f334ce7529d_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/001f9485-8808-4818-9bda-6f334ce7529d_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\001f9485-8808-4818-9bda-6f334ce7529d_2222.jpg"
+    },
     {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\0267dfa9-2a17-4bf3-89cb-93c33c5d1f93_marketing-section.jpg",
       "SourceId": "PanelsProject_Backend",
@@ -72,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\0610d2ac-64cb-4601-bfc4-9a606bb1bee6_pictureone.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\07c50121-4b0c-4164-b306-55d2b9f7c392_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/07c50121-4b0c-4164-b306-55d2b9f7c392_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\07c50121-4b0c-4164-b306-55d2b9f7c392_2222.jpg"
     },
     {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\09278ff9-1470-4ec9-a44d-a391e8a5ba92_1111.avif",
@@ -682,6 +720,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\44641096-b2b8-4b55-9f2f-c420a8f49afc_marketing-section.jpg"
     },
     {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\4482437c-6810-426e-ac1d-299ca257b92f_pirveli.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/4482437c-6810-426e-ac1d-299ca257b92f_pirveli.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\4482437c-6810-426e-ac1d-299ca257b92f_pirveli.jpg"
+    },
+    {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\44c583fd-c4bb-4419-a9c1-8690c39d29e9_IMG_20191107_203711.jpg",
       "SourceId": "PanelsProject_Backend",
       "SourceType": "Discovered",
@@ -891,6 +948,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\554da511-f8a4-460a-ae68-cb10c0938fa8_marketing-section.jpg"
     },
     {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\560208ad-3ec3-4f7f-b31c-4f3e3dde51eb_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/560208ad-3ec3-4f7f-b31c-4f3e3dde51eb_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\560208ad-3ec3-4f7f-b31c-4f3e3dde51eb_2222.jpg"
+    },
+    {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\56351aa7-3817-43ce-9668-595268969760.jpg",
       "SourceId": "PanelsProject_Backend",
       "SourceType": "Discovered",
@@ -927,6 +1003,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\571b354d-b9d9-4602-9d08-e91bcd69f571_2222.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\57db9882-ba9f-4d4a-bb0b-2501d83dacf9_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/57db9882-ba9f-4d4a-bb0b-2501d83dacf9_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\57db9882-ba9f-4d4a-bb0b-2501d83dacf9_2222.jpg"
     },
     {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\5cbdf06e-1ff1-4ae7-80b6-df9ebe142fd4_Screenshot 2024-12-05 000920.jpg",
@@ -1195,6 +1290,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\8b82b2f9-64c5-4a12-af33-d4fe905bf79d_marketing-section.jpg"
     },
     {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\8ccb8e56-9323-4664-9034-73d78b7aced6_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/8ccb8e56-9323-4664-9034-73d78b7aced6_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\8ccb8e56-9323-4664-9034-73d78b7aced6_2222.jpg"
+    },
+    {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\8d628221-fde6-4d41-a01f-7776c2b3e3c7_marketing-section.jpg",
       "SourceId": "PanelsProject_Backend",
       "SourceType": "Discovered",
@@ -1269,6 +1383,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\925138ba-44c7-42bc-a564-27433a0e7ac9_Screenshot 2024-12-05 000901.png"
+    },
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\961f560b-3ff3-4ae9-a051-331fa0e8ca8c_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/961f560b-3ff3-4ae9-a051-331fa0e8ca8c_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\961f560b-3ff3-4ae9-a051-331fa0e8ca8c_2222.jpg"
     },
     {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\9e47494e-fb0f-42bf-a784-618fb5ebada0_marketing-section.jpg",
@@ -1592,6 +1725,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\bc5891c1-a1b8-4136-801c-5881fd08631e_IMG_20191107_203711.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\bf14fc1f-8f4a-4cda-a0b0-335b54f756b1_2222.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/bf14fc1f-8f4a-4cda-a0b0-335b54f756b1_2222.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\bf14fc1f-8f4a-4cda-a0b0-335b54f756b1_2222.jpg"
     },
     {
       "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\bf61a05e-c9bd-457c-9d3b-78c2eed68547_fqbj9yi79gw74xiov6sl.webp",

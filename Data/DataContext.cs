@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Entities;
+using PanelsProject_BackRud.Rutities;
 
 namespace PanelsProject_Backend.Data
 {
@@ -16,6 +17,7 @@ namespace PanelsProject_Backend.Data
         public DbSet<InformationBanner> InformationBanners { get; set; }
         public DbSet<GallerySectionTexts> GallerySectionTexts { get; set; }
         public DbSet<SaleItem> SaleItems { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
 
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)

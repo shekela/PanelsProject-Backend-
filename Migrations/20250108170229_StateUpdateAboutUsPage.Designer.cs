@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PanelsProject_Backend.Data;
 
@@ -10,9 +11,11 @@ using PanelsProject_Backend.Data;
 namespace PanelsProject_Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250108170229_StateUpdateAboutUsPage")]
+    partial class StateUpdateAboutUsPage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,40 +44,40 @@ namespace PanelsProject_Backend.Migrations
                     b.Property<string>("GreetingTextRu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneDescriptionEn")
+                    b.Property<string>("textBoxOneDescriptionEn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneDescriptionKa")
+                    b.Property<string>("textBoxOneDescriptionKa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneDescriptionRu")
+                    b.Property<string>("textBoxOneDescriptionRu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneTitleEn")
+                    b.Property<string>("textBoxOneTitleEn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneTitleKa")
+                    b.Property<string>("textBoxOneTitleKa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxOneTitleRu")
+                    b.Property<string>("textBoxOneTitleRu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoDescriptionEn")
+                    b.Property<string>("textBoxTwoDescriptionEn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoDescriptionKa")
+                    b.Property<string>("textBoxTwoDescriptionKa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoDescriptionRu")
+                    b.Property<string>("textBoxTwoDescriptionRu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoTitleEn")
+                    b.Property<string>("textBoxTwoTitleEn")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoTitleKa")
+                    b.Property<string>("textBoxTwoTitleKa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TextBoxTwoTitleRu")
+                    b.Property<string>("textBoxTwoTitleRu")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
