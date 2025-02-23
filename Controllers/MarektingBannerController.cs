@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -29,7 +30,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(products);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("CreateMarketingBanner")]
         public async Task<IActionResult> CreateMarketingBanner(
          [FromForm] MarketingBannerDto marketingBanner,
@@ -73,7 +74,32 @@ namespace PanelsProject_Backend.Controllers
                     // If an image was uploaded, update the image URL
                     if (!string.IsNullOrEmpty(imagePath))
                     {
-                        existingMarketingBanner.ImgUrl = imagePath;
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(existingMarketingBanner.ImgUrl))
+                            {
+                                string fileName = Path.GetFileName(existingMarketingBanner.ImgUrl);
+                                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                                // Check if file exists before attempting to delete it
+                                if (System.IO.File.Exists(filePath))
+                                {
+                                    Console.WriteLine($"File to be deleted: {filePath}");
+                                    _fileService.DeleteFile(fileName);  // Delete the old image
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"File not found: {filePath}");
+                                }
+                            }
+
+                            // Update the ImgUrl with the new image
+                            existingMarketingBanner.ImgUrl = imagePath;
+                        }
+                        catch (Exception ex)
+                        {
+                            return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                        }
                     }
 
                     await _context.SaveChangesAsync();

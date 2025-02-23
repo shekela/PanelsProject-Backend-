@@ -18,6 +18,7 @@ namespace PanelsProject_Backend.Data
         public DbSet<GallerySectionTexts> GallerySectionTexts { get; set; }
         public DbSet<SaleItem> SaleItems { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)

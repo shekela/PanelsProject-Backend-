@@ -1,0 +1,20 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>PanelsProject_Backend</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PanelsProject_Backend</BasePath>
+      <RelativePath>uploads/3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

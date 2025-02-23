@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "qa/hEG9802qcqJbRGldYIWMFIjPumaEf9AnVcsnVd2g=",
+  "Source": "PanelsProject_Backend",
+  "BasePath": "_content/PanelsProject_Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PanelsProject_Backend\\wwwroot",
+      "Source": "PanelsProject_Backend",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\uploads\\3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg",
+      "SourceId": "PanelsProject_Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luka\\source\\repos\\PanelsProject_Backend\\PanelsProject_Backend\\wwwroot\\",
+      "BasePath": "_content/PanelsProject_Backend",
+      "RelativePath": "uploads/3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\3e723381-0c1f-49c7-94de-ce1fb0ca54e1_7634db39-d916-44a9-9809-fc7844eb4e4b_98d29e4c-7726-4b0b-9a3c-bf7a6429fbeb_717A2641.jpg"
+    }
+  ]
+}

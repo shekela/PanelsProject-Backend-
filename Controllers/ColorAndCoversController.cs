@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -19,6 +20,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-product")]
         public async Task<IActionResult> AddProduct([FromForm] ColorAndCovers product, IFormFile backgroundImage)
         {
@@ -48,6 +50,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Product added successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("update-product/{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromForm] ColorAndCovers updatedProduct, IFormFile backgroundImage)
         {
@@ -58,12 +61,28 @@ namespace PanelsProject_Backend.Controllers
                 return NotFound(new { message = "Product not found." });
             }
 
-            // Handle image upload if provided
             if (backgroundImage != null)
             {
-                string filePath = await _fileService.SaveFileAsync(backgroundImage);
-                existingProduct.BackgroundUrl = filePath;
+                // Construct file path for the old image to be deleted
+                string fileName = Path.GetFileName(existingProduct.BackgroundUrl);
+                string oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+                Console.WriteLine($"File to be deleted: {oldFilePath}");
+
+                // Check if the old file exists and delete it
+                if (System.IO.File.Exists(oldFilePath))
+                {
+                    _fileService.DeleteFile(fileName);
+                }
+                else
+                {
+                    Console.WriteLine($"File not found: {oldFilePath}");
+                }
+
+                // Save the new uploaded file and update the product's BackgroundUrl
+                string newFilePath = await _fileService.SaveFileAsync(backgroundImage);
+                existingProduct.BackgroundUrl = newFilePath;
             }
+
 
             // Update properties if provided in the request
             if (!string.IsNullOrWhiteSpace(updatedProduct.TitleEn))
@@ -127,6 +146,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(products);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-color-and-covers/{id}")]
         public async Task<IActionResult> DeleteColorAndCovers(int id)
         {
@@ -137,12 +157,37 @@ namespace PanelsProject_Backend.Controllers
                 return NotFound(new { message = "Product not found." });
             }
 
+            // Check if the product has an associated picture
+            if (!string.IsNullOrEmpty(existingProduct.BackgroundUrl))
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(existingProduct.BackgroundUrl);
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+                    Console.WriteLine($"File to be deleted: {filePath}");
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        _fileService.DeleteFile(fileName);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File not found: {filePath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle error if file deletion fails
+                    return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                }
+            }
+
             // Remove the product from the database
             _context.ColorAndCovers.Remove(existingProduct);
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "Product deleted successfully." });
+            return Ok(new { message = "Product and associated picture deleted successfully." });
         }
+
 
 
     }

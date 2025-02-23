@@ -82,6 +82,28 @@ namespace PanelsProject_Backend.Migrations
                     b.ToTable("AboutUs");
                 });
 
+            modelBuilder.Entity("PanelsProject_Backend.Entities.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
+
             modelBuilder.Entity("PanelsProject_Backend.Entities.ColorAndCovers", b =>
                 {
                     b.Property<int>("Id")

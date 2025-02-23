@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -20,6 +21,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-product")]
         public async Task<IActionResult> AddProduct([FromForm] ProductsSliderCatalog product, IFormFile imageFile)
         {
@@ -54,7 +56,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(products);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-product/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -65,7 +67,22 @@ namespace PanelsProject_Backend.Controllers
                 return NotFound(new { message = "Product not found." });
             }
 
-            // Remove the product from the database
+            if (!string.IsNullOrEmpty(existingProduct.BackgroundUrl))
+            {
+                string fileName = Path.GetFileName(existingProduct.BackgroundUrl);
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+                Console.WriteLine($"File to be deleted: {filePath}");
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    _fileService.DeleteFile(fileName);
+                }
+                else
+                {
+                    Console.WriteLine($"File not found: {filePath}");
+                }
+            }
+
             _context.ProductsSliderCatalog.Remove(existingProduct);
             await _context.SaveChangesAsync();
 

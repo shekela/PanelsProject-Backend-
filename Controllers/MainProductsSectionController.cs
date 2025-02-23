@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -21,6 +22,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("createMainProductSectionText")]
         public async Task<IActionResult> CreateMainProductSection([FromBody] MainProductSectionDto mainProductSectionDto)
         {
@@ -91,6 +93,7 @@ namespace PanelsProject_Backend.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-product")]
         public async Task<IActionResult> AddProduct([FromForm] Product product, IFormFile imageFile)
         {
@@ -121,7 +124,7 @@ namespace PanelsProject_Backend.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("update-product/{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromForm] Product updatedProduct, IFormFile imageFile)
         {
@@ -149,10 +152,37 @@ namespace PanelsProject_Backend.Controllers
             existingProduct.ButtonTextRu = updatedProduct.ButtonTextRu;
 
             // Handle the file upload
-            if (imageFile != null)
+            if (imageFile != null && imageFile.Length > 0)
             {
-                var imageUrl = await _fileService.SaveFileAsync(imageFile); // Save the file and get its URL
-                existingProduct.BackgroundUrl = imageUrl;
+                try
+                {
+                    // Check if the current product has a background image URL
+                    if (!string.IsNullOrEmpty(existingProduct.BackgroundUrl))
+                    {
+                        // Extract the file name from the URL and construct the file path
+                        string fileName = Path.GetFileName(existingProduct.BackgroundUrl);
+                        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                        // Check if the file exists in the uploads folder
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            Console.WriteLine($"File to be deleted: {filePath}");
+                            _fileService.DeleteFile(fileName);  // Delete the old file
+                        }
+                        else
+                        {
+                            Console.WriteLine($"File not found: {filePath}");
+                        }
+                    }
+
+                    // Save the new uploaded image and get the URL
+                    var imageUrl = await _fileService.SaveFileAsync(imageFile);
+                    existingProduct.BackgroundUrl = imageUrl;  // Update the BackgroundUrl with the new image URL
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, new { message = "An error occurred while deleting the old image or saving the new one.", details = ex.Message });
+                }
             }
 
             // Save changes to the database
@@ -162,7 +192,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Product updated successfully." });
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-product/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -171,6 +201,31 @@ namespace PanelsProject_Backend.Controllers
             if (existingProduct == null)
             {
                 return NotFound(new { message = "Product not found." });
+            }
+
+            // Check if the BackgroundUrl exists and is not null or empty
+            if (!string.IsNullOrEmpty(existingProduct.BackgroundUrl))
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(existingProduct.BackgroundUrl);
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                    // Check if the file exists before attempting to delete it
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        Console.WriteLine($"File to be deleted: {filePath}");
+                        _fileService.DeleteFile(fileName);  // Call your custom DeleteFile method
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File not found: {filePath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                }
             }
 
             // Remove the product from the database

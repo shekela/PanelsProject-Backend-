@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -22,6 +23,7 @@ namespace PanelsProject_Backend.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("CreateVideoCatalog")]
         public async Task<IActionResult> CreateVideoCatalog(
     [FromForm] VideoCatalogDto videoCatalog,   // Accept the DTO from the form data
@@ -65,6 +67,31 @@ namespace PanelsProject_Backend.Controllers
                     // If a background image file was uploaded, update the background URL
                     if (!string.IsNullOrEmpty(backgroundPath))
                     {
+                        try
+                        {
+                            string fileName = Path.GetFileName(existingVideoCatalog.BackgroundUrl);
+                            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                            // Log the filename for debugging purposes
+                            Console.WriteLine($"File to be deleted: {filePath}");
+
+                            // Check if the file exists before attempting to delete it
+                            if (System.IO.File.Exists(filePath))
+                            {
+                                // Delete the old file from the server using FileService
+                                _fileService.DeleteFile(fileName);
+                            }
+                            else
+                            {
+                                // Log that the file was not found
+                                Console.WriteLine($"File not found: {filePath}");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any exception that might occur during the file deletion process
+                            return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                        }
                         existingVideoCatalog.BackgroundUrl = backgroundPath;
                     }
 

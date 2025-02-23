@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -22,6 +23,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
+        
         [HttpPost("create-greeting")]
         public async Task<IActionResult> CreateMainProductSection([FromForm] AboutUsDto aboutUsDto, IFormFile backgroundImage)
         {
@@ -43,6 +45,27 @@ namespace PanelsProject_Backend.Controllers
 
                 if (backgroundImage != null)
                 {
+                    try
+                    {
+                        string fileName = Path.GetFileName(existingAboutUsPage.BackgroundImage);
+                        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                        Console.WriteLine($"File to be deleted: {filePath}");
+
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            _fileService.DeleteFile(fileName);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"File not found: {filePath}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                    }
+
                     var imageFilePath = await _fileService.SaveFileAsync(backgroundImage);
                     aboutUsDto.BackgroundImage = imageFilePath; 
                 }

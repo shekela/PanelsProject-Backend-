@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -20,7 +21,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
-        // HTTP POST: Add a new sale item
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-saleitem")]
         public async Task<ActionResult<SaleItem>> AddSaleItem([FromForm]SaleItem saleItem, IFormFile picture)
         {
@@ -46,6 +47,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(saleItems);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-item/{id}")]
         public async Task<IActionResult> DeleteSaleItem(int id)
         {
@@ -54,6 +56,31 @@ namespace PanelsProject_Backend.Controllers
             if (saleItem == null)
             {
                 return NotFound(new { message = $"Sale item with Id {id} not found." });
+            }
+
+            if (!string.IsNullOrEmpty(saleItem.Picture))
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(saleItem.Picture);
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                    // Check if the file exists in the uploads folder
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        Console.WriteLine($"File to be deleted: {filePath}");
+                        _fileService.DeleteFile(fileName);  // Delete the old file
+                    }
+                    else
+                    {
+                        Console.WriteLine($"File not found: {filePath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle error if file deletion fails
+                    return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                }
             }
 
             _context.SaleItems.Remove(saleItem);

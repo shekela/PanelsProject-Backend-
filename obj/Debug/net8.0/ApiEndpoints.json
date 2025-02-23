@@ -106,6 +106,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PanelsProject_Backend.Controllers.AdminController",
+    "Method": "Login",
+    "RelativePath": "api/Admin/login-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logindto",
+        "Type": "PanelsProject_Backend.DTO_s.AdminDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PanelsProject_Backend.DTO_s.ReturnAdmin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PanelsProject_Backend.Controllers.ColorAndCoversController",
     "Method": "AddProduct",
     "RelativePath": "api/ColorAndCovers/add-product",

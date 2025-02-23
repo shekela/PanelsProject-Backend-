@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -20,7 +21,7 @@ namespace PanelsProject_Backend.Controllers
             _fileService = fileService;
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-picture")]
         public async Task<IActionResult> AddProduct([FromForm] GalleryPictures picture, IFormFile backgroundImage)
         {
@@ -39,7 +40,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Product added successfully." });
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-picture/{id}")]
         public async Task<IActionResult> DeletePicture(int id)
         {
@@ -49,6 +50,35 @@ namespace PanelsProject_Backend.Controllers
             {
                 return NotFound(new { message = "Picture not found." });
             }
+            // Check if the product has an associated picture
+            if (!string.IsNullOrEmpty(existingPicture.Picture))
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(existingPicture.Picture);
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+
+                    // Log the filename for debugging purposes
+                    Console.WriteLine($"File to be deleted: {filePath}");
+
+                    // Check if the file exists before attempting to delete it
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        // Delete the old file from the server using FileService
+                        _fileService.DeleteFile(fileName);
+                    }
+                    else
+                    {
+                        // Log that the file was not found
+                        Console.WriteLine($"File not found: {filePath}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle error if file deletion fails
+                    return StatusCode(500, new { message = "An error occurred while deleting the picture.", details = ex.Message });
+                }
+            }
 
             // Remove the picture from the database
             _context.GalleryPictures.Remove(existingPicture);
@@ -57,7 +87,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Picture deleted successfully." });
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("createGalleryTexts")]
         public async Task<IActionResult> CreateGalleryTexts([FromBody] GallerySectionTexts galleryTextsDto)
         {

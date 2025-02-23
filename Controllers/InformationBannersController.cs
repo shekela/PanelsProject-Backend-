@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PanelsProject_Backend.Data;
@@ -16,7 +17,7 @@ namespace PanelsProject_Backend.Controllers
             _context = context;
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-banner")]
         public async Task<IActionResult> AddBanner([FromBody] InformationBanner banner)
         {
@@ -32,6 +33,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Product added successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("update-banner/{id}")]
         public async Task<IActionResult> UpdateBanner(int id, [FromBody] InformationBanner updatedBanner)
         {
@@ -66,6 +68,7 @@ namespace PanelsProject_Backend.Controllers
             return Ok(new { message = "Banner updated successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete-banner/{id}")]
         public async Task<IActionResult> DeleteBanner(int id)
         {
